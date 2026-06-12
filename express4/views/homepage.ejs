@@ -164,6 +164,27 @@
         color: #6b7280;
       }
 
+      .details-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.75rem;
+        padding: 0.75rem 1.15rem;
+        border-radius: 999px;
+        background: #2563eb;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+      }
+
+      .details-btn:hover {
+        transform: translateY(-1px);
+        background: #1d4ed8;
+        box-shadow: 0 14px 28px rgba(37, 99, 235, 0.22);
+      }
+
       .empty-state {
         padding: 2rem;
         border-radius: 24px;
@@ -217,6 +238,7 @@
                 <div class="meta-item"><span>Location</span><span><%= home.location || 'Unknown' %></span></div>
                 <div class="meta-item"><span>Price</span><span><%= home.price ? `₹${home.price}` : 'Not set' %></span></div>
               </div>
+              <a href="/<%= home.price %>" class="details-btn">Details</a>
             </article>
           <% }) %>
         </section>
