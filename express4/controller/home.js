@@ -1,7 +1,5 @@
 const path = require("path");
 
-//const data = require("../data/data");
-
 const Home = require("../models/homes");
 
 exports.addhomeController = (req, res, next) => {
