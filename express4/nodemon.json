@@ -4,6 +4,3 @@
   "ignore": ["node_modules/", "data/"],
   "exec": "node app.js"
 }
-
-// problem ye hua ki jab bhi data add ho rha tha homes.json me... nodemon change detect kr rha tha or server refresh kr de rha tha... jisse ki data show nhi ho rha tha
-// to humne nodemon.js banaya and usme ignore add kr diya

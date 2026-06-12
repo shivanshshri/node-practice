@@ -3,7 +3,7 @@ const path = require("path");
 const rootDir = require("../utils/pathUtil");
 
 //fake databse
-const data = [];
+let data = [];
 
 module.exports = class Home {
   constructor(name, location, price, rating) {
@@ -13,14 +13,23 @@ module.exports = class Home {
     this.rating = rating;
   }
   save() {
-    data.push(this);
-    const filePath = path.join(rootDir, "data", "homes.json");
-    fs.writeFile(filePath, JSON.stringify(data), (err) => {
-      console.log(err);
+    Home.fetchAll((data) => {
+      data.push(this);
+      const filePath = path.join(rootDir, "data", "homes.json");
+      fs.writeFile(filePath, JSON.stringify(data), (err) => {
+        console.log(err);
+      });
     });
   }
 
-  static fetchAll() {
-    return data;
+  static fetchAll(callback) {
+    const filePath = path.join(rootDir, "data", "homes.json");
+    fs.readFile(filePath, (err, data) => {
+      if (!err) {
+        callback(JSON.parse(data));
+      } else {
+        callback([]);
+      }
+    });
   }
 };

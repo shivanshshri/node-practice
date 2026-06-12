@@ -16,8 +16,7 @@ exports.succesfulController = (req, res, next) => {
 };
 
 exports.homepageController = (req, res, next) => {
-  const data = Home.fetchAll();
-  console.log("Homepage loaded");
+  const data = Home.fetchAll((data) => res.render("homepage", { data }));
+  //console.log("Homepage loaded");
   // res.sendFile(path.join(__dirname, "../views/homepage.html"));
-  res.render("homepage", { data });
 };
